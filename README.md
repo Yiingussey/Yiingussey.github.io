@@ -12,6 +12,7 @@
             font-family: 'Times New Roman', serif;
             text-align: center;
             color: #8B0000;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         /* Fullscreen Background Circle Rotation */
@@ -19,23 +20,22 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            width: 100vw;
-            height: 100vh;
+            width: 120vw;
+            height: 120vh;
             transform: translate(-50%, -50%);
             z-index: -1;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
         }
 
         .background img {
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            animation: rotate 10s linear infinite, spin 1s linear infinite;
+            animation: rotate 20s linear infinite, spin 5s linear infinite;
         }
 
         /* Rotation of the whole group */
@@ -46,8 +46,8 @@
 
         /* Individual spinning effect */
         @keyframes spin {
-            0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
-            100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .background img:nth-child(1) {
@@ -55,35 +55,35 @@
         }
 
         .background img:nth-child(2) {
-            animation-delay: 1s;
-        }
-
-        .background img:nth-child(3) {
             animation-delay: 2s;
         }
 
-        .background img:nth-child(4) {
-            animation-delay: 3s;
-        }
-
-        .background img:nth-child(5) {
+        .background img:nth-child(3) {
             animation-delay: 4s;
         }
 
-        .background img:nth-child(6) {
-            animation-delay: 5s;
-        }
-
-        .background img:nth-child(7) {
+        .background img:nth-child(4) {
             animation-delay: 6s;
         }
 
+        .background img:nth-child(5) {
+            animation-delay: 8s;
+        }
+
+        .background img:nth-child(6) {
+            animation-delay: 10s;
+        }
+
+        .background img:nth-child(7) {
+            animation-delay: 12s;
+        }
+
         .background img:nth-child(8) {
-            animation-delay: 7s;
+            animation-delay: 14s;
         }
 
         .background img:nth-child(9) {
-            animation-delay: 8s;
+            animation-delay: 16s;
         }
 
         .overlay-text {
@@ -93,7 +93,7 @@
             transform: translate(-50%, -50%);
             color: #FFFFFF;
             text-shadow: 2px 2px 5px #000000;
-            font-size: 2em;
+            font-size: 3em;
             font-weight: bold;
             z-index: 1;
         }
@@ -102,12 +102,14 @@
             background-color: #FFB6C1;
             border: none;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 18px;
             color: white;
             cursor: pointer;
             border-radius: 20px;
             font-family: 'Times New Roman', serif;
+            margin-top: 20px;
         }
+
         button:hover {
             background-color: #FF69B4;
         }
@@ -155,7 +157,7 @@
 
     <!-- Spotify Embeds -->
     <div class="spotify-container">
-        <iframe src="https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0&autoplay=1" width="300" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0&autoplay=1" width="0" height="0" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </div>
 
     <script>
