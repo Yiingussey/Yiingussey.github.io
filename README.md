@@ -10,7 +10,7 @@
             padding: 0;
             font-family: 'Times New Roman', serif;
             text-align: center;
-            color: #8B0000;
+            color: #4B0000;
             background-color: #fff0f5;
             overflow: hidden;
             position: relative;
@@ -32,7 +32,7 @@
         }
 
         button {
-            background-color: #FFB6C1;
+            background-color: #8B0000;
             border: none;
             padding: 15px 30px;
             font-size: 20px;
@@ -43,7 +43,7 @@
         }
 
         button:hover {
-            background-color: #FF69B4;
+            background-color: #600000;
         }
 
         .hidden {
@@ -52,7 +52,7 @@
 
         .container a {
             display: block;
-            background-color: #FFB6C1;
+            background-color: #8B0000;
             color: white;
             text-decoration: none;
             padding: 15px 30px;
@@ -62,7 +62,7 @@
         }
 
         .container a:hover {
-            background-color: #FF69B4;
+            background-color: #600000;
         }
 
         /* Tulip Frame */
@@ -74,7 +74,7 @@
             height: 100%;
             pointer-events: none;
             background: url('https://img.freepik.com/premium-vector/illustration-cute-doodle-spring-flower-tulips-digital-stamp-greeting-card-sticker-icon-desig_564737-1531.jpg?w=740') repeat;
-            opacity: 0.7;
+            opacity: 0.3;
         }
 
         .quiz-popup {
@@ -86,11 +86,14 @@
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            color: #4B0000;
         }
 
         .quiz-popup button {
             margin-top: 10px;
+            background-color: #8B0000;
+            color: white;
         }
 
         .wrong-answer {
@@ -172,3 +175,4 @@
     </script>
 </body>
 </html>
+
