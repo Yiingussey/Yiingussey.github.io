@@ -160,3 +160,10 @@
     </script>
 </body>
 </html>
+
+            iframe.style.border = "none";
+            document.body.appendChild(iframe);
+        };
+    </script>
+</body>
+</html>
