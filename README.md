@@ -18,15 +18,11 @@
         /* Fullscreen Background Circle Rotation */
         .background {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 120vw;
-            height: 120vh;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .background img {
@@ -35,55 +31,19 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            animation: rotate 20s linear infinite, spin 5s linear infinite;
+            animation: move 10s linear infinite;
         }
 
-        /* Rotation of the whole group */
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes move {
+            0% { transform: translate(0%, 0%); }
+            25% { transform: translate(90vw, 0%); }
+            50% { transform: translate(90vw, 90vh); }
+            75% { transform: translate(0%, 90vh); }
+            100% { transform: translate(0%, 0%); }
         }
 
-        /* Individual spinning effect */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .background img:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .background img:nth-child(2) {
-            animation-delay: 2s;
-        }
-
-        .background img:nth-child(3) {
-            animation-delay: 4s;
-        }
-
-        .background img:nth-child(4) {
-            animation-delay: 6s;
-        }
-
-        .background img:nth-child(5) {
-            animation-delay: 8s;
-        }
-
-        .background img:nth-child(6) {
-            animation-delay: 10s;
-        }
-
-        .background img:nth-child(7) {
-            animation-delay: 12s;
-        }
-
-        .background img:nth-child(8) {
-            animation-delay: 14s;
-        }
-
-        .background img:nth-child(9) {
-            animation-delay: 16s;
+        .background img:nth-child(odd) {
+            animation-direction: reverse;
         }
 
         .overlay-text {
@@ -121,6 +81,30 @@
         .spotify-container {
             display: none; /* Hide the Spotify iframe */
         }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .container a {
+            display: block;
+            background-color: #FFB6C1;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .container a:hover {
+            background-color: #FF69B4;
+        }
     </style>
 </head>
 <body>
@@ -144,7 +128,6 @@
 
     <!-- Main Content -->
     <div class="container">
-        <h1>Happy Valentine's Day, My Love! 💖</h1>
         <p>I've made something special just for you! 💕</p>
         <button onclick="showSurprise()">Click Here for a Surprise!</button>
         <div id="surprise" class="hidden">
