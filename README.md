@@ -16,7 +16,6 @@
             <a href="quiz.html">Take a Fun Love Quiz 💘</a>
             <a href="story.html">Read Our Love Story 📖</a>
             <a href="letters.html">A Special Letter for You 💌</a>
-            <a href="quotes.html">Love Quotes Just for You ❤️</a>
         </div>
     </div>
     
