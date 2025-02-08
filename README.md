@@ -132,15 +132,15 @@
 <body>
     <!-- Background Section -->
     <div class="background">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.35.48_e8325fd8.jpg" alt="Background 1">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.36.27_53d57fb4.jpg" alt="Background 2">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.39.19_3351dafc.jpg" alt="Background 3">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.37.52_1505e358.jpg" alt="Background 4">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.37.42_9093e91b.jpg" alt="Background 5">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.37.16_016e6d03.jpg" alt="Background 6">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.37.04_d731798f.jpg" alt="Background 7">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.36.52_d32847ac.jpg" alt="Background 8">
-        <img src="/mnt/data/WhatsApp%20Image%202025-02-08%20at%2023.35.23_4baa8fb6.jpg" alt="Background 9">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_1" alt="Background 1">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_2" alt="Background 2">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_3" alt="Background 3">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_4" alt="Background 4">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_5" alt="Background 5">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_6" alt="Background 6">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_7" alt="Background 7">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_8" alt="Background 8">
+        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_9" alt="Background 9">
     </div>
 
     <!-- Overlay Text -->
@@ -163,9 +163,7 @@
 
     <!-- Spotify Embeds -->
     <div class="spotify-container">
-        <iframe src="https://open.spotify.com/embed/track/1HEGcv63IZ7TPncpVKdVdN?utm_source=generator&theme=0" width="300" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://open.spotify.com/embed/track/1naVD19eofGpFf6wosmHIe?utm_source=generator&theme=0" width="300" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://open.spotify.com/embed/track/2qhASBzpbFhPRtrnZ5lLnz?utm_source=generator&theme=0" width="300" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0" width="300" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allow="autoplay"></iframe>
     </div>
 
     <script>
