@@ -13,6 +13,7 @@
             text-align: center;
             color: #8B0000;
             overflow: hidden; /* Prevent scrolling */
+            background-color: #fff0f5;
         }
 
         /* Fullscreen Background Circle Rotation */
@@ -46,16 +47,19 @@
             animation-direction: reverse;
         }
 
-        .overlay-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #FFFFFF;
-            text-shadow: 2px 2px 5px #000000;
+        .title {
             font-size: 3em;
             font-weight: bold;
-            z-index: 1;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         button {
@@ -78,19 +82,6 @@
             display: none;
         }
 
-        .spotify-container {
-            display: none; /* Hide the Spotify iframe */
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
         .container a {
             display: block;
             background-color: #FFB6C1;
@@ -105,42 +96,65 @@
         .container a:hover {
             background-color: #FF69B4;
         }
+
+        /* Quiz Pop-up */
+        .quiz-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+        }
+
+        .quiz-popup button {
+            margin-top: 10px;
+        }
+
+        .wrong {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <!-- Background Section -->
+
+    <!-- Background Images -->
     <div class="background">
         <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_1" alt="Background 1">
         <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_2" alt="Background 2">
         <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_3" alt="Background 3">
         <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_4" alt="Background 4">
         <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_5" alt="Background 5">
-        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_6" alt="Background 6">
-        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_7" alt="Background 7">
-        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_8" alt="Background 8">
-        <img src="https://drive.google.com/uc?id=YOUR_IMAGE_ID_9" alt="Background 9">
     </div>
 
-    <!-- Overlay Text -->
-    <div class="overlay-text">
-        For the love of my life who I adore so much
-    </div>
+    <!-- Title -->
+    <h1 class="title">For the love of my life who I adore so much</h1>
 
     <!-- Main Content -->
     <div class="container">
-        <p>I've made something special just for you! 💕</p>
         <button onclick="showSurprise()">Click Here for a Surprise!</button>
         <div id="surprise" class="hidden">
-            <p>You are the most amazing person in my life! I love you! 😘</p>
-            <a href="quiz.html">Take a Fun Love Quiz 💘</a>
+            <a href="#" onclick="openQuiz()">Take a Fun Love Quiz 💘</a>
             <a href="story.html">Read Our Love Story 📖</a>
             <a href="letters.html">A Special Letter for You 💌</a>
         </div>
     </div>
 
-    <!-- Spotify Embeds -->
-    <div class="spotify-container">
-        <iframe src="https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0&autoplay=1" width="0" height="0" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <!-- Quiz Pop-up -->
+    <div id="quiz-popup" class="quiz-popup">
+        <p id="quiz-question">Question 1: What is my favorite color?</p>
+        <button onclick="checkAnswer(this, true)">Red</button>
+        <button onclick="checkAnswer(this, false)">Blue</button>
+        <button onclick="checkAnswer(this, false)">Green</button>
+        <button onclick="checkAnswer(this, false)">Yellow</button>
+        <p id="feedback" class="hidden"></p>
+        <button onclick="nextQuestion()">Next</button>
     </div>
 
     <script>
@@ -148,18 +162,51 @@
             document.getElementById("surprise").classList.remove("hidden");
         }
 
-        // Ensure autoplay works by dynamically creating the iframe
-        window.onload = function() {
-            const iframe = document.createElement('iframe');
-            iframe.src = "https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0&autoplay=1";
-            iframe.width = "0";
-            iframe.height = "0";
-            iframe.style.border = "none";
-            document.body.appendChild(iframe);
-        };
+        function openQuiz() {
+            document.getElementById("quiz-popup").style.display = "block";
+        }
+
+        let currentQuestion = 0;
+        const questions = [
+            { question: "What is my favorite color?", answers: ["Red", "Blue", "Green", "Yellow"], correct: 0 },
+            { question: "Where did we first meet?", answers: ["School", "Cafe", "Park", "Online"], correct: 3 },
+            { question: "What is my favorite dessert?", answers: ["Cake", "Ice Cream", "Cookies", "Chocolate"], correct: 1 }
+        ];
+
+        function checkAnswer(button, isCorrect) {
+            if (isCorrect) {
+                document.getElementById("feedback").textContent = "Correct! 😊";
+                document.getElementById("feedback").classList.remove("wrong");
+            } else {
+                document.getElementById("feedback").textContent = "Oops, wrong answer! 😢";
+                document.getElementById("feedback").classList.add("wrong");
+            }
+            document.getElementById("feedback").classList.remove("hidden");
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                document.getElementById("quiz-question").textContent = questions[currentQuestion].question;
+                const buttons = document.querySelectorAll("#quiz-popup button:not(:last-child)");
+                buttons.forEach((btn, index) => {
+                    btn.textContent = questions[currentQuestion].answers[index];
+                    btn.setAttribute("onclick", `checkAnswer(this, ${index === questions[currentQuestion].correct})`);
+                });
+                document.getElementById("feedback").classList.add("hidden");
+            } else {
+                document.getElementById("quiz-popup").innerHTML = "<p>You're amazing! Quiz completed! 🎉</p><button onclick='closeQuiz()'>Close</button>";
+            }
+        }
+
+        function closeQuiz() {
+            document.getElementById("quiz-popup").style.display = "none";
+        }
     </script>
+
 </body>
 </html>
+
 
             iframe.style.border = "none";
             document.body.appendChild(iframe);
