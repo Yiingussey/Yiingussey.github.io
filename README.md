@@ -117,15 +117,7 @@
         }
 
         .spotify-container {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        .spotify-container iframe {
-            margin: 0 5px;
+            display: none; /* Hide the Spotify iframe */
         }
     </style>
 </head>
@@ -163,13 +155,23 @@
 
     <!-- Spotify Embeds -->
     <div class="spotify-container">
-        <iframe src="https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0" width="300" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allow="autoplay"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0&autoplay=1" width="300" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </div>
 
     <script>
         function showSurprise() {
             document.getElementById("surprise").classList.remove("hidden");
         }
+
+        // Ensure autoplay works by dynamically creating the iframe
+        window.onload = function() {
+            const iframe = document.createElement('iframe');
+            iframe.src = "https://open.spotify.com/embed/playlist/0kos2AxTIUBaK7CNsEY2xb?utm_source=generator&theme=0&autoplay=1";
+            iframe.width = "0";
+            iframe.height = "0";
+            iframe.style.border = "none";
+            document.body.appendChild(iframe);
+        };
     </script>
 </body>
 </html>
