@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -154,20 +154,49 @@
         }
 
         const imagePaths = [
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/rp8jrl.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/847d1d6279e25d4b1b1b37a943d21285.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20211220-WA0000.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20220531-WA0002.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20220806-WA0007 (1).jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20220819-WA0003.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20221019-WA0007.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20221027-WA0003.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20221114-WA0001.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20230420-WA0009.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20230507-WA0056.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20240107-WA0006.jpeg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20240209-WA0027.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20240510-WA0000.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20241021-WA0010.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20241109-WA0006.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20241118-WA0026.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG-20241213-WA0004.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG_20210526_233252.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG_20220823_205139_0126.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG_20220823_205337_0099.jpg",
-            "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG_20230727_040452_0919.jpg", "Yiingussey.github.io/14-20250209T064610Z-001/14/IMG_20231210_130938_991.png
+            "14-20250209T064610Z-001/14/-rp8jrl.jpg", 
+            "14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg", 
+            "14-20250209T064610Z-001/14/847d1d6279e25d4b1b1b37a943d21285.jpg",
+            "14-20250209T064610Z-001/14/IMG-20211220-WA0000.jpg", 
+            "14-20250209T064610Z-001/14/IMG-20220531-WA0002.jpg",
+            "14-20250209T064610Z-001/14/IMG-20220806-WA0007 (1).jpg",
+            "14-20250209T064610Z-001/14/IMG-20220819-WA0003.jpg",
+            "14-20250209T064610Z-001/14/IMG-20221019-WA0007.jpg",
+            "14-20250209T064610Z-001/14/IMG-20221027-WA0003.jpg",
+            "14-20250209T064610Z-001/14/IMG-20221114-WA0001.jpg",
+            "14-20250209T064610Z-001/14/IMG-20230420-WA0009.jpg",
+            "14-20250209T064610Z-001/14/IMG-20230507-WA0056.jpg",
+            "14-20250209T064610Z-001/14/IMG-20240107-WA0006.jpeg",
+            "14-20250209T064610Z-001/14/IMG-20240209-WA0027.jpg",
+            "14-20250209T064610Z-001/14/IMG-20240510-WA0000.jpg",
+            "14-20250209T064610Z-001/14/IMG-20241021-WA0010.jpg",
+            "14-20250209T064610Z-001/14/IMG-20241109-WA0006.jpg",
+            "14-20250209T064610Z-001/14/IMG-20241118-WA0026.jpg",
+            "14-20250209T064610Z-001/14/IMG-20241118-WA0026.jpg",
+            "14-20250209T064610Z-001/14/IMG_20210526_233252.jpg",
+            "14-20250209T064610Z-001/14/IMG_20220823_205139_0126.jpg",
+            "14-20250209T064610Z-001/14/IMG_20220823_205337_0099.jpg",
+            "14-20250209T064610Z-001/14/IMG_20230727_040452_0919.jpg",
+            "14-20250209T064610Z-001/14/IMG_20231210_130938_991.png",
+            "14-20250209T064610Z-001/14/Snapchat-1555126238.jpg"
+        ];
 
+        window.onload = function() {
+            imagePaths.forEach((path, index) => {
+                const img = document.createElement('img');
+                img.src = path;
+                img.className = 'floating-image';
+                img.style.left = `${Math.random() * 100}%`;
+                img.style.animationDuration = `${Math.random() * 5 + 5}s`; // random speed for floating
+                document.body.appendChild(img);
+            });
+        };
+
+        // Functions for closing popups and other interactive parts
+        function closePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
     </script>
-    </body>
-    </html>
+</body>
+</html>
 
