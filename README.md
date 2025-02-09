@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +18,22 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        .floating-img {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            animation: floatAround 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(90vw, 10vh); }
+            50% { transform: translate(80vw, 80vh); }
+            75% { transform: translate(10vw, 90vh); }
+            100% { transform: translate(0, 0); }
         }
 
         .title {
@@ -66,12 +83,7 @@
             color: #4B0000;
             width: 80%;
             max-width: 500px;
-        }
-
-        .popup button {
-            margin-top: 10px;
-            background-color: #8B0000;
-            color: white;
+            z-index: 10;
         }
     </style>
 </head>
@@ -90,17 +102,16 @@
     <div id="quiz-popup" class="popup">
         <p id="quiz-question"></p>
         <div id="quiz-options"></div>
-        <p id="quiz-feedback" class="wrong-answer"></p>
+        <p id="quiz-feedback"></p>
         <button onclick="nextQuestion()">Next</button>
         <button onclick="closePopup('quiz-popup')">Close</button>
     </div>
 
     <div id="story-popup" class="popup">
-    <h2>Our Love Story</h2>
-    <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
-    <button onclick="closePopup('story-popup')">Close</button>
+        <h2>Our Love Story</h2>
+        <p><a href="your-story-file.pdf" target="_blank">Click here to read our love story ❤️</a></p>
+        <button onclick="closePopup('story-popup')">Close</button>
     </div>
-
 
     <div id="letter-popup" class="popup">
         <h2>A Special Letter for You 💌</h2>
@@ -114,9 +125,8 @@
         }
 
         function showQuiz() {
-            quizIndex = 0;
-            updateQuiz();
             document.getElementById("quiz-popup").style.display = "block";
+            updateQuiz();
         }
 
         function showStoryPopup() {
@@ -134,8 +144,8 @@
         let quizIndex = 0;
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
-            { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor","ass"], answer: "Thighs" },
-            { question: "Whats was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortabley Numb"], answer: "Comfortabley Numb" }
+            { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor", "ass"], answer: "Thighs" },
+            { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
         ];
 
         function updateQuiz() {
@@ -170,5 +180,10 @@
             }
         }
     </script>
+
+    <img src="14-20250209T064610Z-001/14/-rp8jrl.jpg" class="floating-img" style="top: 10px; left: 10px;">
+    <img src="14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg" class="floating-img" style="top: 50%; left: 70%;">
+    <img src="14-20250209T064610Z-001/14/847d1d6279e25d4b1b1b37a943d21285.jpg" style="bottom: 20px; right: 20px;">
 </body>
 </html>
+
