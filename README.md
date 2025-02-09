@@ -5,101 +5,94 @@
     <title>Valentine's Surprise ❤️</title>
     <style>
         body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Times New Roman', serif;
-    text-align: center;
-    color: #4B0000;
-    background-color: #fff0f5;
-    overflow: hidden;
-    position: relative;
-    background-image: url('https://i.pinimg.com/736x/6c/5f/6e/6c5f6e73039c2bbc79d5dd4a4266b801.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
-}
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            color: #4B0000;
+            background-color: #fff0f5;
+            overflow: hidden;
+            position: relative;
+            background-image: url('https://i.pinimg.com/736x/6c/5f/6e/6c5f6e73039c2bbc79d5dd4a4266b801.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100vw;
+        }
 
-.floating-image {
-    position: absolute;
-    width: 80px; /* Increased for better visibility */
-    height: 80px;
-    opacity: 0.9; /* Increased opacity */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    animation: floatAnimation linear infinite;
-}
+        .floating-image {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            animation: floatAnimation linear infinite;
+        }
 
-.floating-image:hover {
-    transform: scale(1.2);
-    opacity: 1;
-}
+        .floating-image:hover {
+            transform: scale(1.2);
+            opacity: 1;
+        }
 
-.title {
-    font-size: 3em;
-    font-weight: bold;
-    margin-top: 50px;
-}
+        .title {
+            font-size: 3em;
+            font-weight: bold;
+            margin-top: 50px;
+        }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-    margin-top: 3rem;
-}
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
 
-button {
-    background-color: #8B0000;
-    border: none;
-    padding: 15px 30px;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
-    border-radius: 20px;
-    font-family: 'Times New Roman', serif;
-}
+        button {
+            background-color: #8B0000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: 'Times New Roman', serif;
+        }
 
-button:hover {
-    background-color: #600000;
-}
+        button:hover {
+            background-color: #600000;
+        }
 
-.hidden {
-    display: none;
-}
+        .hidden {
+            display: none;
+        }
 
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    color: #4B0000;
-    width: 80%;
-    max-width: 500px;
-    z-index: 10;
-}
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            color: #4B0000;
+            width: 80%;
+            max-width: 500px;
+            z-index: 10;
+        }
 
-/* Floating animation */
-@keyframes floatAnimation {
-    from {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-10vh);
-        opacity: 0;
-    }
-}
-
+        @keyframes floatAnimation {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
             to {
                 transform: translateY(-10vh);
                 opacity: 0;
@@ -108,6 +101,10 @@ button:hover {
     </style>
 </head>
 <body>
+    <audio id="background-music" autoplay loop>
+        <source src="spotifydown.com - 寻一个你 (电视剧《苍兰诀》温情主题曲) - 摩登兄弟刘宇宁.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <h1 class="title">For the love of my life who I adore so much</h1>
 
     <div class="container">
@@ -123,7 +120,6 @@ button:hover {
         <p id="quiz-question"></p>
         <div id="quiz-options"></div>
         <p id="quiz-feedback"></p>
-        <button onclick="nextQuestion()">Next</button>
         <button onclick="closePopup('quiz-popup')">Close</button>
     </div>
 
@@ -140,7 +136,7 @@ button:hover {
     </div>
 
     <script>
-        let quizIndex = 0;
+    quizIndex = 0;
         let score = 0;
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
