@@ -23,7 +23,7 @@
             position: absolute;
             width: 50px;
             height: 50px;
-            opacity: 0.8; /* Set opacity to 80% */
+            opacity: 0.8;
             animation: floatAnimation linear infinite;
         }
 
@@ -107,17 +107,16 @@
     <div id="quiz-popup" class="popup">
         <p id="quiz-question"></p>
         <div id="quiz-options"></div>
-        <p id="quiz-feedback" class="wrong-answer"></p>
+        <p id="quiz-feedback"></p>
         <button onclick="nextQuestion()">Next</button>
         <button onclick="closePopup('quiz-popup')">Close</button>
     </div>
 
     <div id="story-popup" class="popup">
-    <h2>Our Love Story</h2>
-    <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
-    <button onclick="closePopup('story-popup')">Close</button>
+        <h2>Our Love Story</h2>
+        <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
+        <button onclick="closePopup('story-popup')">Close</button>
     </div>
-
 
     <div id="letter-popup" class="popup">
         <h2>A Special Letter for You 💌</h2>
@@ -151,6 +150,20 @@
                 document.getElementById("quiz-question").textContent = "Quiz Completed!";
                 document.getElementById("quiz-options").innerHTML = "";
             }
+        }
+
+        function checkAnswer(option) {
+            if (option === quizData[quizIndex].answer) {
+                document.getElementById("quiz-feedback").textContent = "Correct! 💖";
+            } else {
+                document.getElementById("quiz-feedback").textContent = "Wrong answer 😔";
+            }
+            quizIndex++;
+            setTimeout(updateQuiz, 1500);
+        }
+
+        function nextQuestion() {
+            updateQuiz();
         }
 
         const imagePaths = [
@@ -192,9 +205,16 @@
             });
         };
 
-        // Functions for closing popups and other interactive parts
         function closePopup(id) {
             document.getElementById(id).style.display = "none";
+        }
+
+        function showStoryPopup() {
+            document.getElementById("story-popup").style.display = "block";
+        }
+
+        function showLetterPopup() {
+            document.getElementById("letter-popup").style.display = "block";
         }
     </script>
 </body>
