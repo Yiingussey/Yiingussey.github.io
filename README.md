@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -73,8 +72,12 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            background: url('https://img.freepik.com/premium-vector/illustration-cute-doodle-spring-flower-tulips-digital-stamp-greeting-card-sticker-icon-desig_564737-1531.jpg?w=740') repeat;
+            background-image: url('https://i.pinimg.com/736x/6c/5f/6e/6c5f6e73039c2bbc79d5dd4a4266b801.jpg'); /* Updated background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             opacity: 0.3;
+            z-index: -1;
         }
 
         .quiz-popup {
