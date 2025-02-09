@@ -96,10 +96,11 @@
     </div>
 
     <div id="story-popup" class="popup">
-        <h2>Our Love Story</h2>
-        <p>Once upon a time, in a world full of chaos, we found each other... ❤️</p>
-        <button onclick="closePopup('story-popup')">Close</button>
+    <h2>Our Love Story</h2>
+    <p><a href="Thank You Letter Doc in Green Greeting.docx" target="_blank">Click here to read our love story ❤️</a></p>
+    <button onclick="closePopup('story-popup')">Close</button>
     </div>
+
 
     <div id="letter-popup" class="popup">
         <h2>A Special Letter for You 💌</h2>
