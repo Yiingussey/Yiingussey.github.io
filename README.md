@@ -102,9 +102,28 @@
 </head>
 <body>
     <audio id="background-music" autoplay loop>
-        <source src="spotifydown.com - 寻一个你 (电视剧《苍兰诀》温情主题曲) - 摩登兄弟刘宇宁.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <source src="audio/background.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("background-music");
+
+        // Attempt to autoplay the music
+        audio.play()
+            .then(() => console.log("Music is playing"))
+            .catch((err) => {
+                console.error("Autoplay blocked:", err);
+                alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
+                
+                // Allow playback on interaction if autoplay is blocked
+                document.body.addEventListener("click", () => {
+                    audio.play();
+                }, { once: true });
+            });
+    });
+</script>
     <h1 class="title">For the love of my life who I adore so much</h1>
 
     <div class="container">
