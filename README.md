@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -102,28 +103,29 @@
 </head>
 <body>
     <audio id="background-music" autoplay loop>
-    <source src="audio/background.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+        <source src="spotifydown.com - 寻一个你 (电视剧《苍兰诀》温情主题曲) - 摩登兄弟刘宇宁.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const audio = document.getElementById("background-music");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById("background-music");
 
-        // Attempt to autoplay the music
-        audio.play()
-            .then(() => console.log("Music is playing"))
-            .catch((err) => {
-                console.error("Autoplay blocked:", err);
-                alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
-                
-                // Allow playback on interaction if autoplay is blocked
-                document.body.addEventListener("click", () => {
-                    audio.play();
-                }, { once: true });
-            });
-    });
-</script>
+            // Attempt to autoplay the music
+            audio.play()
+                .then(() => console.log("Music is playing"))
+                .catch((err) => {
+                    console.error("Autoplay blocked:", err);
+                    alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
+                    
+                    // Allow playback on interaction if autoplay is blocked
+                    document.body.addEventListener("click", () => {
+                        audio.play();
+                    }, { once: true });
+                });
+        });
+    </script>
+
     <h1 class="title">For the love of my life who I adore so much</h1>
 
     <div class="container">
@@ -155,12 +157,12 @@
     </div>
 
     <script>
-    quizIndex = 0;
+        let quizIndex = 0;
         let score = 0;
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
             { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor", "ass"], answer: "Thighs" },
-            { question: "Whats was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
+            { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
         ];
 
         function showSurprise() {
@@ -192,10 +194,6 @@
             }
             quizIndex++;
             setTimeout(updateQuiz, 1500);
-        }
-
-        function nextQuestion() {
-            updateQuiz();
         }
 
         const imagePaths = [
@@ -236,3 +234,4 @@
     </script>
 </body>
 </html>
+
