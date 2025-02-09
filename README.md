@@ -13,6 +13,10 @@
             background-color: #fff0f5;
             overflow: hidden;
             position: relative;
+            background-image: url('https://i.pinimg.com/736x/6c/5f/6e/6c5f6e73039c2bbc79d5dd4a4266b801.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .title {
@@ -49,38 +53,7 @@
             display: none;
         }
 
-        .container a {
-            display: block;
-            background-color: #8B0000;
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 20px;
-            font-size: 20px;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .container a:hover {
-            background-color: #600000;
-        }
-
-        /* Tulip Frame */
-        .tulip-frame {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: url('https://i.pinimg.com/736x/6c/5f/6e/6c5f6e73039c2bbc79d5dd4a4266b801.jpg'); /* Updated background */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.3;
-            z-index: -1;
-        }
-
-        .quiz-popup {
+        .popup {
             display: none;
             position: fixed;
             top: 50%;
@@ -91,44 +64,70 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             color: #4B0000;
+            width: 80%;
+            max-width: 500px;
         }
 
-        .quiz-popup button {
+        .popup button {
             margin-top: 10px;
             background-color: #8B0000;
             color: white;
         }
-
-        .wrong-answer {
-            color: red;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
-    <div class="tulip-frame"></div>
-
     <h1 class="title">For the love of my life who I adore so much</h1>
 
     <div class="container">
         <button onclick="showSurprise()">Click Here for a Surprise!</button>
         <div id="surprise" class="hidden">
             <button onclick="showQuiz()">Take a Fun Love Quiz 💘</button>
-            <a href="story.html">Read Our Love Story 📖</a>
-            <a href="letters.html">A Special Letter for You 💌</a>
+            <button onclick="showStoryPopup()">Read Our Love Story 📖</button>
+            <button onclick="showLetterPopup()">A Special Letter for You 💌</button>
         </div>
     </div>
 
-    <div id="quiz-popup" class="quiz-popup">
+    <div id="quiz-popup" class="popup">
         <p id="quiz-question"></p>
         <div id="quiz-options"></div>
         <p id="quiz-feedback" class="wrong-answer"></p>
         <button onclick="nextQuestion()">Next</button>
+        <button onclick="closePopup('quiz-popup')">Close</button>
+    </div>
+
+    <div id="story-popup" class="popup">
+        <h2>Our Love Story</h2>
+        <p>Once upon a time, in a world full of chaos, we found each other... ❤️</p>
+        <button onclick="closePopup('story-popup')">Close</button>
+    </div>
+
+    <div id="letter-popup" class="popup">
+        <h2>A Special Letter for You 💌</h2>
+        <p>My love, every moment with you is magical. You are my world, my everything... 💖</p>
+        <button onclick="closePopup('letter-popup')">Close</button>
     </div>
 
     <script>
         function showSurprise() {
             document.getElementById("surprise").classList.remove("hidden");
+        }
+
+        function showQuiz() {
+            quizIndex = 0;
+            updateQuiz();
+            document.getElementById("quiz-popup").style.display = "block";
+        }
+
+        function showStoryPopup() {
+            document.getElementById("story-popup").style.display = "block";
+        }
+
+        function showLetterPopup() {
+            document.getElementById("letter-popup").style.display = "block";
+        }
+
+        function closePopup(id) {
+            document.getElementById(id).style.display = "none";
         }
 
         let quizIndex = 0;
@@ -137,12 +136,6 @@
             { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor","ass"], answer: "Thighs" },
             { question: "Whats was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortabley Numb"], answer: "Comfortabley Numb" }
         ];
-
-        function showQuiz() {
-            quizIndex = 0;
-            updateQuiz();
-            document.getElementById("quiz-popup").style.display = "block";
-        }
 
         function updateQuiz() {
             let questionData = quizData[quizIndex];
@@ -178,4 +171,3 @@
     </script>
 </body>
 </html>
-
