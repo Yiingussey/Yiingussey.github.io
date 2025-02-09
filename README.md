@@ -73,6 +73,47 @@
             background-color: #8B0000;
             color: white;
         }
+
+        .floating-images {
+            position: absolute;
+            animation: rotate 10s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .image-wrapper {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .image-wrapper img {
+            width: 150px;
+            opacity: 0.8;
+        }
+
+        .image-top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .image-top-right {
+            top: 10px;
+            right: 10px;
+        }
+
+        .image-bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .image-bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -96,16 +137,28 @@
     </div>
 
     <div id="story-popup" class="popup">
-    <h2>Our Love Story</h2>
-    <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
-    <button onclick="closePopup('story-popup')">Close</button>
+        <h2>Our Love Story</h2>
+        <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
+        <button onclick="closePopup('story-popup')">Close</button>
     </div>
-
 
     <div id="letter-popup" class="popup">
         <h2>A Special Letter for You 💌</h2>
         <p>My love, every moment with you is magical. You are my world, my everything... 💖</p>
         <button onclick="closePopup('letter-popup')">Close</button>
+    </div>
+
+    <div class="image-wrapper image-top-left floating-images">
+        <img src="image1.jpg" alt="Decorative">
+    </div>
+    <div class="image-wrapper image-top-right floating-images">
+        <img src="image2.jpg" alt="Decorative">
+    </div>
+    <div class="image-wrapper image-bottom-left floating-images">
+        <img src="image3.jpg" alt="Decorative">
+    </div>
+    <div class="image-wrapper image-bottom-right floating-images">
+        <img src="image4.jpg" alt="Decorative">
     </div>
 
     <script>
