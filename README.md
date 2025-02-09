@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +23,7 @@
             position: absolute;
             width: 50px;
             height: 50px;
-            opacity: 0.7;
+            opacity: 0.9;  /* Increased opacity */
             animation: floatAnimation linear infinite;
         }
 
@@ -52,6 +51,7 @@
             cursor: pointer;
             border-radius: 20px;
             font-family: 'Times New Roman', serif;
+            transition: background-color 0.3s;
         }
 
         button:hover {
@@ -130,7 +130,7 @@
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
             { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor", "ass"], answer: "Thighs" },
-            { question: "Whats was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
+            { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
         ];
 
         function showSurprise() {
@@ -150,7 +150,18 @@
             } else {
                 document.getElementById("quiz-question").textContent = "Quiz Completed!";
                 document.getElementById("quiz-options").innerHTML = "";
+                document.getElementById("quiz-feedback").textContent = "Thank you for playing!";
             }
+        }
+
+        function checkAnswer(selectedOption) {
+            const correctAnswer = quizData[quizIndex].answer;
+            const feedback = selectedOption === correctAnswer ? "Correct! 🎉" : "Oops! Try again. 😔";
+            document.getElementById("quiz-feedback").textContent = feedback;
+            setTimeout(() => {
+                quizIndex++;
+                updateQuiz();
+            }, 1000);
         }
 
         const imagePaths = [
@@ -192,11 +203,9 @@
             });
         };
 
-        // Functions for closing popups and other interactive parts
         function closePopup(id) {
             document.getElementById(id).style.display = "none";
         }
     </script>
 </body>
 </html>
-
