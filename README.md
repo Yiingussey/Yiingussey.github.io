@@ -126,6 +126,7 @@
 
     <script>
         let quizIndex = 0;
+        let score = 0;  // To track the number of correct answers
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
             { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor", "ass"], answer: "Thighs" },
@@ -147,7 +148,7 @@
                 document.getElementById("quiz-options").innerHTML = quizData[quizIndex].options.map(option => 
                     `<button onclick="checkAnswer('${option}')">${option}</button>`).join('');
             } else {
-                document.getElementById("quiz-question").textContent = "Quiz Completed!";
+                document.getElementById("quiz-question").textContent = `Quiz Completed! You got ${score}/${quizData.length} questions right! 🎉`;
                 document.getElementById("quiz-options").innerHTML = "";
             }
         }
@@ -155,6 +156,7 @@
         function checkAnswer(option) {
             if (option === quizData[quizIndex].answer) {
                 document.getElementById("quiz-feedback").textContent = "Correct! 💖";
+                score++;
             } else {
                 document.getElementById("quiz-feedback").textContent = "Wrong answer 😔";
             }
@@ -205,6 +207,7 @@
             });
         };
 
+        // Functions for closing popups and other interactive parts
         function closePopup(id) {
             document.getElementById(id).style.display = "none";
         }
