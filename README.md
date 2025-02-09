@@ -168,24 +168,58 @@
         }
 
         function createFloatingImages() {
-            for (let i = 0; i < 20; i++) {
-                let img = document.createElement("img");
-                img.src = "14-20250209T064610Z-001/14";
-                img.className = "floating-image";
-                document.body.appendChild(img);
-                animateFloatingImage(img);
-            }
-        }
+    const imagePaths = [
+        "14-20250209T064610Z-001/14/-rp8jrl.jpg",
+        "14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg",
+        "14-20250209T064610Z-001/14/847d1d6279e25d4b1b1b37a943d21285.jpg",
+        "14-20250209T064610Z-001/14/IMG-20211220-WA0000.jpg",
+        "14-20250209T064610Z-001/14/IMG-20220531-WA0002.jpg",
+        "14-20250209T064610Z-001/14/IMG-20220806-WA0007 (1).jpg",
+        "14-20250209T064610Z-001/14/IMG-20220819-WA0003.jpg",
+        "14-20250209T064610Z-001/14/IMG-20221019-WA0007.jpg",
+        "14-20250209T064610Z-001/14/IMG-20221027-WA0003.jpg",
+        "14-20250209T064610Z-001/14/IMG-20221114-WA0001.jpg",
+        "14-20250209T064610Z-001/14/IMG-20230420-WA0009.jpg",
+        "14-20250209T064610Z-001/14/IMG-20230507-WA0056.jpg",
+        "14-20250209T064610Z-001/14/IMG-20240107-WA0006.jpeg",
+        "14-20250209T064610Z-001/14/IMG-20240209-WA0027.jpg",
+        "14-20250209T064610Z-001/14/IMG-20240510-WA0000.jpg",
+        "14-20250209T064610Z-001/14/IMG-20241021-WA0010.jpg",
+        "14-20250209T064610Z-001/14/IMG-20241109-WA0006.jpg",
+        "14-20250209T064610Z-001/14/IMG-20241118-WA0026.jpg",
+        "14-20250209T064610Z-001/14/IMG-20241213-WA0004.jpg",
+        "14-20250209T064610Z-001/14/IMG_20210526_233252.jpg",
+        "14-20250209T064610Z-001/14/IMG_20220823_205139_0126.jpg",
+        "14-20250209T064610Z-001/14/IMG_20220823_205337_0099.jpg",
+        "14-20250209T064610Z-001/14/IMG_20230727_040452_0919.jpg",
+        "14-20250209T064610Z-001/14/IMG_20231210_130938_991.png",
+        "14-20250209T064610Z-001/14/Snapchat-1555126238.jpg"
+    ];
 
-        function animateFloatingImage(img) {
-            img.style.top = Math.random() * window.innerHeight + "px";
-            img.style.left = Math.random() * window.innerWidth + "px";
-            setInterval(() => {
-                img.style.transform = `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)`;
-            }, 5000);
-        }
+    imagePaths.forEach(src => {
+        let img = document.createElement("img");
+        img.src = src;
+        img.className = "floating-image";
+        document.body.appendChild(img);
+        animateFloatingImage(img);
+    });
+}
 
-        createFloatingImages();
+function animateFloatingImage(img) {
+    img.style.position = "absolute";
+    img.style.top = Math.random() * window.innerHeight + "px";
+    img.style.left = Math.random() * window.innerWidth + "px";
+    img.style.transition = "transform 10s linear";
+
+    setInterval(() => {
+        img.style.transform = `translate(${Math.random() * window.innerWidth}px, ${Math.random() * window.innerHeight}px)`;
+    }, 10000);
+}
+
+createFloatingImages();
+
+    }
+        }
     </script>
 </body>
 </html>
