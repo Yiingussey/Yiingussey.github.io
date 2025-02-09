@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,20 +20,12 @@
             background-repeat: no-repeat;
         }
 
-        .floating-img {
+        .floating-image {
             position: absolute;
-            width: 100px;
-            height: 100px;
-            animation: floatAround 10s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes floatAround {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(90vw, 10vh); }
-            50% { transform: translate(80vw, 80vh); }
-            75% { transform: translate(10vw, 90vh); }
-            100% { transform: translate(0, 0); }
+            width: 50px;
+            height: 50px;
+            opacity: 0.7;
+            transition: transform 10s linear;
         }
 
         .title {
@@ -109,7 +101,7 @@
 
     <div id="story-popup" class="popup">
         <h2>Our Love Story</h2>
-        <p><a href="your-story-file.pdf" target="_blank">Click here to read our love story ❤️</a></p>
+        <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
         <button onclick="closePopup('story-popup')">Close</button>
     </div>
 
@@ -121,7 +113,7 @@
 
     <script>
         function showSurprise() {
-            document.getElementById("surprise").classList.remove("hidden");
+            document.getElementById("surprise").style.display = "block";
         }
 
         function showQuiz() {
@@ -137,15 +129,15 @@
             document.getElementById("letter-popup").style.display = "block";
         }
 
-        function closePopup(id) {
-            document.getElementById(id).style.display = "none";
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = "none";
         }
 
         let quizIndex = 0;
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
-            { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor", "ass"], answer: "Thighs" },
-            { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
+            { question: "What is my favorite thing about you?", options: ["Boobs", "Thighs", "Personality", "Humor", "Ass"], answer: "Thighs" },
+            { question: "What was our bonding song?", options: ["WAP", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
         ];
 
         function updateQuiz() {
@@ -161,13 +153,8 @@
 
         function checkAnswer(selected) {
             let correct = quizData[quizIndex].answer;
-            if (selected === correct) {
-                document.getElementById("quiz-feedback").textContent = "Correct!";
-                document.getElementById("quiz-feedback").style.color = "green";
-            } else {
-                document.getElementById("quiz-feedback").textContent = "Oops! Try again.";
-                document.getElementById("quiz-feedback").style.color = "red";
-            }
+            document.getElementById("quiz-feedback").textContent = selected === correct ? "Correct! 💖" : "Oops! Try again. 💔";
+            document.getElementById("quiz-feedback").style.color = selected === correct ? "green" : "red";
         }
 
         function nextQuestion() {
@@ -179,11 +166,26 @@
                 alert("You're amazing! Quiz finished ❤️");
             }
         }
-    </script>
 
-    <img src="14-20250209T064610Z-001/14/-rp8jrl.jpg" class="floating-img" style="top: 10px; left: 10px;">
-    <img src="14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg" class="floating-img" style="top: 50%; left: 70%;">
-    <img src="14-20250209T064610Z-001/14/847d1d6279e25d4b1b1b37a943d21285.jpg" style="bottom: 20px; right: 20px;">
+        function createFloatingImages() {
+            for (let i = 0; i < 20; i++) {
+                let img = document.createElement("img");
+                img.src = "14-20250209T064610Z-001/14";
+                img.className = "floating-image";
+                document.body.appendChild(img);
+                animateFloatingImage(img);
+            }
+        }
+
+        function animateFloatingImage(img) {
+            img.style.top = Math.random() * window.innerHeight + "px";
+            img.style.left = Math.random() * window.innerWidth + "px";
+            setInterval(() => {
+                img.style.transform = `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)`;
+            }, 5000);
+        }
+
+        createFloatingImages();
+    </script>
 </body>
 </html>
-
