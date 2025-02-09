@@ -5,86 +5,101 @@
     <title>Valentine's Surprise ❤️</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Times New Roman', serif;
-            text-align: center;
-            color: #4B0000;
-            background-color: #fff0f5;
-            overflow: hidden;
-            position: relative;
-            background-image: url('https://i.pinimg.com/736x/6c/5f/6e/6c5f6e73039c2bbc79d5dd4a4266b801.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', serif;
+    text-align: center;
+    color: #4B0000;
+    background-color: #fff0f5;
+    overflow: hidden;
+    position: relative;
+    background-image: url('https://i.pinimg.com/736x/6c/5f/6e/6c5f6e73039c2bbc79d5dd4a4266b801.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
 
-        .floating-image {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            opacity: 0.8;
-            animation: floatAnimation linear infinite;
-        }
+.floating-image {
+    position: absolute;
+    width: 80px; /* Increased for better visibility */
+    height: 80px;
+    opacity: 0.9; /* Increased opacity */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    animation: floatAnimation linear infinite;
+}
 
-        .title {
-            font-size: 3em;
-            font-weight: bold;
-            margin-top: 50px;
-        }
+.floating-image:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
+.title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 50px;
+}
 
-        button {
-            background-color: #8B0000;
-            border: none;
-            padding: 15px 30px;
-            font-size: 20px;
-            color: white;
-            cursor: pointer;
-            border-radius: 20px;
-            font-family: 'Times New Roman', serif;
-        }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
 
-        button:hover {
-            background-color: #600000;
-        }
+button {
+    background-color: #8B0000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: 'Times New Roman', serif;
+}
 
-        .hidden {
-            display: none;
-        }
+button:hover {
+    background-color: #600000;
+}
 
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            color: #4B0000;
-            width: 80%;
-            max-width: 500px;
-            z-index: 10;
-        }
+.hidden {
+    display: none;
+}
 
-        @keyframes floatAnimation {
-            from {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-            }
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: #4B0000;
+    width: 80%;
+    max-width: 500px;
+    z-index: 10;
+}
+
+/* Floating animation */
+@keyframes floatAnimation {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
             to {
                 transform: translateY(-10vh);
                 opacity: 0;
