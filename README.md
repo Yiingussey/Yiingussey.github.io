@@ -97,7 +97,7 @@
 
     <div id="story-popup" class="popup">
     <h2>Our Love Story</h2>
-    <p><a href="Thank You Letter Doc in Green Greeting.docx" target="_blank">Click here to read our love story ❤️</a></p>
+    <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
     <button onclick="closePopup('story-popup')">Close</button>
     </div>
 
