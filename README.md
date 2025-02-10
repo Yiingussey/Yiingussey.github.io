@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -87,14 +86,14 @@
         }
 
         @keyframes floatAnimation {
-            from {
+            0% {
                 transform: translateY(100vh);
                 opacity: 0;
             }
             20% {
                 opacity: 1;
             }
-            to {
+            100% {
                 transform: translateY(-10vh);
                 opacity: 0;
             }
@@ -102,7 +101,7 @@
     </style>
 </head>
 <body>
-    <audio id="background-music" autoplay loop>
+    <audio id="background-music" loop>
         <source src="spotifydown.com - 寻一个你 (电视剧《苍兰诀》温情主题曲) - 摩登兄弟刘宇宁.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -161,14 +160,14 @@
         let score = 0;
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
-            { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor", "ass"], answer: "Thighs" },
+            { question: "What is my favorite thing about you?", options: ["bova", "Thighs", "personality", "Humor", "feet"], answer: "Thighs" },
             { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" },
-            { question: "when did we first meet?", options: ["jan 18", "mar 5", "feb 23", "jan 27"], answer: "jan 18" },
-            { question: "what was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "GDFR", "you exist in this song", "I'm yours"], answer: "I'm yours"},
-            { question: "who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big dick daddy justin *cums uncontrollably*💦"], answer: "OMG! it's the big dick daddy justin *cums uncontrollably*💦"},
-            { question: "what are my dream goals", options: ["VH-71 Kestrel", "Ferrari 812, V12 spider", "A winstreak in league", "jarvis system"], answer: "VH-71 kestrel"},
-            {question: "do I get a blowjob ring for my valentines ?" , options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!"},
-            {question: "will you 🥺 be my valentine ? 👉👈", options: ["yes", "🔫"], answer: "yes"]
+            { question: "When did we first meet?", options: ["jan 18", "mar 5", "feb 23", "jan 27"], answer: "jan 18" },
+            { question: "What was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "GDFR", "you exist in this song", "I'm yours"], answer: "I'm yours" },
+            { question: "Who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big daddy justin *cs uncontrollably*💦"], answer: "OMG! it's the big daddy justin *cs uncontrollably*💦" },
+            { question: "What are my dream goals?", options: ["VH-71 Kestrel", "Ferrari 812, V12 spider", "A winstreak in league", "jarvis system"], answer: "VH-71 Kestrel" },
+            { question: "Do I get a bjob ring for my valentines?", options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!" },
+            { question: "Will you 🥺 be my valentine? 👉👈", options: ["yes", "🔫"], answer: "yes" }
         ];
 
         function showSurprise() {
@@ -176,6 +175,8 @@
         }
 
         function showQuiz() {
+            quizIndex = 0;
+            score = 0;
             document.getElementById("quiz-popup").style.display = "block";
             updateQuiz();
         }
@@ -185,6 +186,7 @@
                 document.getElementById("quiz-question").textContent = quizData[quizIndex].question;
                 document.getElementById("quiz-options").innerHTML = quizData[quizIndex].options.map(option => 
                     `<button onclick="checkAnswer('${option}')">${option}</button>`).join('');
+                document.getElementById("quiz-feedback").textContent = ""; // Clear feedback
             } else {
                 document.getElementById("quiz-question").textContent = `Quiz Completed! You got ${score}/${quizData.length} questions right! 🎉`;
                 document.getElementById("quiz-options").innerHTML = "";
