@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Surprise ❤️</title>
     <style>
+        /* Existing CSS styles remain unchanged */
         body {
             margin: 0;
             padding: 0;
@@ -99,167 +100,227 @@
                 opacity: 0;
             }
         }
+
+        /* New styles for the countdown timer */
+        #countdown {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em;
+            color: #8B0000;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #content {
+            display: none; /* Hide the content until the countdown ends */
+        }
     </style>
 </head>
 <body>
-    <audio id="background-music" loop>
-        <source src="spotifydown.com - 寻一个你 (电视剧《苍兰诀》温情主题曲) - 摩登兄弟刘宇宁.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Countdown Timer -->
+    <div id="countdown">Loading countdown...</div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const audio = document.getElementById("background-music");
+    <!-- Content (hidden until countdown ends) -->
+    <div id="content">
+        <audio id="background-music" loop>
+            <source src="spotifydown.com - 寻一个你 (电视剧《苍兰诀》温情主题曲) - 摩登兄弟刘宇宁.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
 
-            // Attempt to autoplay the music
-            const playAudio = () => {
-                audio.play()
-                    .then(() => console.log("Music is playing"))
-                    .catch((err) => {
-                        console.error("Autoplay blocked:", err);
-                        alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
-                        
-                        // Allow playback on interaction if autoplay is blocked
-                        document.body.addEventListener("click", () => {
-                            audio.play();
-                        }, { once: true });
-                    });
-            };
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const audio = document.getElementById("background-music");
 
-            // Try to play the audio immediately
-            playAudio();
+                // Attempt to autoplay the music
+                const playAudio = () => {
+                    audio.play()
+                        .then(() => console.log("Music is playing"))
+                        .catch((err) => {
+                            console.error("Autoplay blocked:", err);
+                            alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
+                            
+                            // Allow playback on interaction if autoplay is blocked
+                            document.body.addEventListener("click", () => {
+                                audio.play();
+                            }, { once: true });
+                        });
+                };
 
-            // Fallback: Try to play the audio after a short delay
-            setTimeout(playAudio, 1000);
-        });
-    </script>
+                // Try to play the audio immediately
+                playAudio();
 
-    <h1 class="title">For the love of my life who I adore so much</h1>
-
-    <div class="container">
-        <button onclick="showSurprise()">Click Here for a Surprise!</button>
-        <div id="surprise" class="hidden">
-            <button onclick="showQuiz()">Take a Fun Love Quiz 💘</button>
-            <button onclick="showStoryPopup()">Read Our Love Story 📖</button>
-            <button onclick="showLetterPopup()">A Special Letter for You 💌</button>
-        </div>
-    </div>
-
-    <div id="quiz-popup" class="popup">
-        <p id="quiz-question"></p>
-        <div id="quiz-options"></div>
-        <p id="quiz-feedback"></p>
-        <button onclick="closePopup('quiz-popup')">Close</button>
-    </div>
-
-    <!-- Love Story Popup with Embedded PDF -->
-    <div id="story-popup" class="popup">
-        <h2>Our Love Story</h2>
-        <iframe id="story-frame" src="" width="100%" height="400px"></iframe>
-        <button onclick="closePopup('story-popup')">Close</button>
-    </div>
-
-    <!-- Special Letter Popup -->
-    <div id="letter-popup" class="popup">
-        <h2>A Special Letter for You 💌</h2>
-        <iframe id="letter-frame" src="" width="100%" height="400px"></iframe>
-        <button onclick="closePopup('letter-popup')">Close</button>
-    </div>
-
-    <script>
-        // Quiz functionality
-        let quizIndex = 0;
-        let score = 0;
-        const quizData = [
-            { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
-            { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "detective shyue yiing" },
-            { question: "who has better music taste", options: ["jjt", "bubu", "we both p good"], answer: "we both p good" },
-            { question: "do you cheat when you play scribble.io", options: ["No?", "even if you press know you sus", "very sus"], answer: "No?" },
-            { question: "who is better at air hockey?", options: ["hazel cuz justin let her win", "justin when locked in", "oreo"], answer: "justin when locked in" },
-            { question: "who sends cursed reels", options: ["hazel", "hazel at work", "hazel in bed"], answer: "hazel" },
-            { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
-            { question: "What is my favorite thing about you?", options: ["bova", "Thighs", "personality", "Humor", "feet"], answer: "Thighs" },
-            { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" },
-            { question: "When did we first meet?", options: ["jan 18", "mar 5", "feb 23", "jan 27"], answer: "jan 18" },
-            { question: "What was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "you exist in this song", "I'm yours"], answer: "I'm yours" },
-            { question: "Who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big daddy justin *cums uncontrollably*💦"], answer: "OMG! it's the big daddy justin *cums uncontrollably*💦" },
-            { question: "What are my dream goals?", options: ["VH-71 Kestrel", "Ferrari 812, V12 spider", "A winstreak in league", "jarvis system"], answer: "VH-71 Kestrel" },
-            { question: "Do I get a blowjob ring for my valentines?", options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!" },
-            { question: "Will you 🥺 be my valentine? 👉👈", options: ["yes", "🔫"], answer: "yes" }
-        ];
-
-        function showQuiz() {
-            quizIndex = 0;
-            score = 0;
-            document.getElementById("quiz-popup").style.display = "block";
-            updateQuiz();
-        }
-
-        function updateQuiz() {
-            if (quizIndex < quizData.length) {
-                document.getElementById("quiz-question").textContent = quizData[quizIndex].question;
-                document.getElementById("quiz-options").innerHTML = quizData[quizIndex].options.map(option => 
-                    `<button onclick="checkAnswer('${option.replace(/'/g, "\\'")}')">${option}</button>`).join('');
-                document.getElementById("quiz-feedback").textContent = ""; // Clear feedback
-            } else {
-                document.getElementById("quiz-question").textContent = `Quiz Completed! You got ${score}/${quizData.length} questions right! 🎉`;
-                document.getElementById("quiz-options").innerHTML = "";
-            }
-        }
-
-        function checkAnswer(selectedOption) {
-            const correctAnswer = quizData[quizIndex].answer;
-            if (selectedOption === correctAnswer) {
-                document.getElementById("quiz-feedback").textContent = "Correct! 💖";
-                score++;
-            } else {
-                document.getElementById("quiz-feedback").textContent = "Wrong answer 😔";
-            }
-            quizIndex++;
-            setTimeout(updateQuiz, 1500);
-        }
-
-        function showSurprise() {
-            document.getElementById("surprise").classList.remove("hidden");
-        }
-
-        function showStoryPopup() {
-            document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
-            document.getElementById("story-popup").style.display = "block";
-        }
-
-        function showLetterPopup() {
-            document.getElementById("letter-frame").src = "bubu.png"; // Replace with your actual letter PDF link
-            document.getElementById("letter-popup").style.display = "block";
-        }
-
-        function closePopup(id) {
-            document.getElementById(id).style.display = "none";
-        }
-
-        const imagePaths = [
-            "14-20250209T064610Z-001/14/-rp8jrl.jpg", 
-            "14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg", 
-            "14-20250209T064610Z-001/14/847d1d6279e25d4b1b1b37a943d21285.jpg",
-            "14-20250209T064610Z-001/14/IMG-20211220-WA0000.jpg",
-            "14-20250209T064610Z-001/14/IMG-20220531-WA0002.jpg",
-            "14-20250209T064610Z-001/14/IMG-20220806-WA0007 (1).jpg",
-            "14-20250209T064610Z-001/14/IMG-20220819-WA0003.jpg",
-            "14-20250209T064610Z-001/14/IMG-20221019-WA0007.jpg",
-            "14-20250209T064610Z-001/14/IMG-20221114-WA0001.jpg",
-            "14-20250209T064610Z-001/14/IMG-20230420-WA0009.jpg"
-        ];
-
-        window.onload = function() {
-            imagePaths.forEach((path) => {
-                const img = document.createElement('img');
-                img.src = path;
-                img.className = 'floating-image';
-                img.style.left = `${Math.random() * 100}%`;
-                img.style.animationDuration = `${Math.random() * 5 + 5}s`; 
-                document.body.appendChild(img);
+                // Fallback: Try to play the audio after a short delay
+                setTimeout(playAudio, 1000);
             });
-        };
+        </script>
+
+        <h1 class="title">For the love of my life who I adore so much</h1>
+
+        <div class="container">
+            <button onclick="showSurprise()">Click Here for a Surprise!</button>
+            <div id="surprise" class="hidden">
+                <button onclick="showQuiz()">Take a Fun Love Quiz 💘</button>
+                <button onclick="showStoryPopup()">Read Our Love Story 📖</button>
+                <button onclick="showLetterPopup()">A Special Letter for You 💌</button>
+            </div>
+        </div>
+
+        <div id="quiz-popup" class="popup">
+            <p id="quiz-question"></p>
+            <div id="quiz-options"></div>
+            <p id="quiz-feedback"></p>
+            <button onclick="closePopup('quiz-popup')">Close</button>
+        </div>
+
+        <!-- Love Story Popup with Embedded PDF -->
+        <div id="story-popup" class="popup">
+            <h2>Our Love Story</h2>
+            <iframe id="story-frame" src="" width="100%" height="400px"></iframe>
+            <button onclick="closePopup('story-popup')">Close</button>
+        </div>
+
+        <!-- Special Letter Popup -->
+        <div id="letter-popup" class="popup">
+            <h2>A Special Letter for You 💌</h2>
+            <iframe id="letter-frame" src="" width="100%" height="400px"></iframe>
+            <button onclick="closePopup('letter-popup')">Close</button>
+        </div>
+
+        <script>
+            // Quiz functionality
+            let quizIndex = 0;
+            let score = 0;
+            const quizData = [
+                { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
+                { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "detective shyue yiing" },
+                { question: "who has better music taste", options: ["jjt", "bubu", "we both p good"], answer: "we both p good" },
+                { question: "do you cheat when you play scribble.io", options: ["No?", "even if you press know you sus", "very sus"], answer: "No?" },
+                { question: "who is better at air hockey?", options: ["hazel cuz justin let her win", "justin when locked in", "oreo"], answer: "justin when locked in" },
+                { question: "who sends cursed reels", options: ["hazel", "hazel at work", "hazel in bed"], answer: "hazel" },
+                { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
+                { question: "What is my favorite thing about you?", options: ["bova", "Thighs", "personality", "Humor", "feet"], answer: "Thighs" },
+                { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" },
+                { question: "When did we first meet?", options: ["jan 18", "mar 5", "feb 23", "jan 27"], answer: "jan 18" },
+                { question: "What was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "you exist in this song", "I'm yours"], answer: "I'm yours" },
+                { question: "Who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big daddy justin *cums uncontrollably*💦"], answer: "OMG! it's the big daddy justin *cums uncontrollably*💦" },
+                { question: "What are my dream goals?", options: ["VH-71 Kestrel", "Ferrari 812, V12 spider", "A winstreak in league", "jarvis system"], answer: "VH-71 Kestrel" },
+                { question: "Do I get a blowjob ring for my valentines?", options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!" },
+                { question: "Will you 🥺 be my valentine? 👉👈", options: ["yes", "🔫"], answer: "yes" }
+            ];
+
+            function showQuiz() {
+                quizIndex = 0;
+                score = 0;
+                document.getElementById("quiz-popup").style.display = "block";
+                updateQuiz();
+            }
+
+            function updateQuiz() {
+                if (quizIndex < quizData.length) {
+                    document.getElementById("quiz-question").textContent = quizData[quizIndex].question;
+                    document.getElementById("quiz-options").innerHTML = quizData[quizIndex].options.map(option => 
+                        `<button onclick="checkAnswer('${option.replace(/'/g, "\\'")}')">${option}</button>`).join('');
+                    document.getElementById("quiz-feedback").textContent = ""; // Clear feedback
+                } else {
+                    document.getElementById("quiz-question").textContent = `Quiz Completed! You got ${score}/${quizData.length} questions right! 🎉`;
+                    document.getElementById("quiz-options").innerHTML = "";
+                }
+            }
+
+            function checkAnswer(selectedOption) {
+                const correctAnswer = quizData[quizIndex].answer;
+                if (selectedOption === correctAnswer) {
+                    document.getElementById("quiz-feedback").textContent = "Correct! 💖";
+                    score++;
+                } else {
+                    document.getElementById("quiz-feedback").textContent = "Wrong answer 😔";
+                }
+                quizIndex++;
+                setTimeout(updateQuiz, 1500);
+            }
+
+            function showSurprise() {
+                document.getElementById("surprise").classList.remove("hidden");
+            }
+
+            function showStoryPopup() {
+                document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
+                document.getElementById("story-popup").style.display = "block";
+            }
+
+            function showLetterPopup() {
+                document.getElementById("letter-frame").src = "bubu.png"; // Replace with your actual letter PDF link
+                document.getElementById("letter-popup").style.display = "block";
+            }
+
+            function closePopup(id) {
+                document.getElementById(id).style.display = "none";
+            }
+
+            const imagePaths = [
+                "14-20250209T064610Z-001/14/-rp8jrl.jpg", 
+                "14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg", 
+                "14-20250209T064610Z-001/14/847d1d6279e25d4b1b1b37a943d21285.jpg",
+                "14-20250209T064610Z-001/14/IMG-20211220-WA0000.jpg",
+                "14-20250209T064610Z-001/14/IMG-20220531-WA0002.jpg",
+                "14-20250209T064610Z-001/14/IMG-20220806-WA0007 (1).jpg",
+                "14-20250209T064610Z-001/14/IMG-20220819-WA0003.jpg",
+                "14-20250209T064610Z-001/14/IMG-20221019-WA0007.jpg",
+                "14-20250209T064610Z-001/14/IMG-20221114-WA0001.jpg",
+                "14-20250209T064610Z-001/14/IMG-20230420-WA0009.jpg"
+            ];
+
+            window.onload = function() {
+                imagePaths.forEach((path) => {
+                    const img = document.createElement('img');
+                    img.src = path;
+                    img.className = 'floating-image';
+                    img.style.left = `${Math.random() * 100}%`;
+                    img.style.animationDuration = `${Math.random() * 5 + 5}s`; 
+                    document.body.appendChild(img);
+                });
+            };
+        </script>
+    </div>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set the target date and time (12:00 AM, February 14th, GMT+8:00)
+        const targetDate = new Date("2024-02-14T00:00:00+08:00");
+
+        // Update the countdown every second
+        const countdownElement = document.getElementById("countdown");
+        const contentElement = document.getElementById("content");
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            if (timeDifference <= 0) {
+                // If the countdown is over, show the content
+                countdownElement.style.display = "none";
+                contentElement.style.display = "block";
+                return;
+            }
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            countdownElement.innerHTML = `Countdown to Valentine's Day:<br>${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
     </script>
 </body>
 </html>
