@@ -162,7 +162,13 @@
         const quizData = [
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
             { question: "What is my favorite thing about you?", options: ["boobs", "Thighs", "personality", "Humor", "ass"], answer: "Thighs" },
-            { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" }
+            { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" },
+            { question: "when did we first meet?", options: ["jan 18", "mar 5", "feb 23", "jan 27"], answer: "jan 18" },
+            { question: "what was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "GDFR", "you exist in this song", "I'm yours"], answer: "I'm yours"},
+            { question: "who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big dick daddy justin *cums uncontrollably*💦"], answer: "OMG! it's the big dick daddy justin *cums uncontrollably*💦"},
+            { question: "what are my dream goals", options: ["VH-71 Kestrel", "Ferrari 812, V12 spider", "A winstreak in league", "jarvis system"], answer: "VH-71 kestrel"},
+            {question: "do I get a blowjob ring for my valentines ?" , options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!"},
+            {question: "will you 🥺 be my valentine ? 👉👈", options: ["yes", "🔫"], answer: "yes"]
         ];
 
         function showSurprise() {
