@@ -199,7 +199,7 @@
             if (quizIndex < quizData.length) {
                 document.getElementById("quiz-question").textContent = quizData[quizIndex].question;
                 document.getElementById("quiz-options").innerHTML = quizData[quizIndex].options.map(option => 
-                    `<button onclick="checkAnswer('${option}')">${option}</button>`).join('');
+                    `<button onclick="checkAnswer('${option.replace(/'/g, "\\'")}')">${option}</button>`).join('');
                 document.getElementById("quiz-feedback").textContent = ""; // Clear feedback
             } else {
                 document.getElementById("quiz-question").textContent = `Quiz Completed! You got ${score}/${quizData.length} questions right! 🎉`;
@@ -207,8 +207,9 @@
             }
         }
 
-        function checkAnswer(option) {
-            if (option === quizData[quizIndex].answer) {
+        function checkAnswer(selectedOption) {
+            const correctAnswer = quizData[quizIndex].answer;
+            if (selectedOption === correctAnswer) {
                 document.getElementById("quiz-feedback").textContent = "Correct! 💖";
                 score++;
             } else {
