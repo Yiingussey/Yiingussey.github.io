@@ -229,7 +229,7 @@
         }
 
         function showLetterPopup() {
-            document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
+            document.getElementById("letter-frame").src = "bubu.png"; // Replace with your actual letter PDF link
             document.getElementById("letter-popup").style.display = "block";
         }
 
