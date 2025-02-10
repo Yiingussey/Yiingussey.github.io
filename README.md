@@ -82,7 +82,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             color: #4B0000;
             width: 80%;
-            max-width: 700px;
+            max-width: 500px;
             z-index: 10;
         }
 
@@ -155,14 +155,14 @@
     <!-- Love Story Popup with Embedded PDF -->
     <div id="story-popup" class="popup">
         <h2>Our Love Story</h2>
-        <iframe id="story-frame" src="" width="100%" height="600px"></iframe>
+        <iframe id="story-frame" src="" width="100%" height="500px"></iframe>
         <button onclick="closePopup('story-popup')">Close</button>
     </div>
 
     <!-- Special Letter Popup -->
     <div id="letter-popup" class="popup">
         <h2>A Special Letter for You 💌</h2>
-        <iframe id="letter-frame" src="" width="100%" height="600px"></iframe>
+        <iframe id="letter-frame" src="" width="100%" height="500px"></iframe>
         <button onclick="closePopup('letter-popup')">Close</button>
     </div>
 
