@@ -159,12 +159,18 @@
         let quizIndex = 0;
         let score = 0;
         const quizData = [
+        { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
+        { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "dectective shyue yiing" },
+        { question: "who has better music taste", options: ["jjt", "bubu", "we both p good"], answer: "we both p good" },
+        { question: "do you cheat when you play scribble.io", options: ["No?", "even if you press know you sus", "very sus"], answer: "No?" },
+        { question: "who is better at air hockey?", options: ["hazel cuz justin let her win", "justin when locked in", "oreo"], answer: "justin when locked in" },
+        { question: "who sends cursed reels", options: ["hazel", "hazel at work", "hazel in bed"], answer: "hazel" },
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
             { question: "What is my favorite thing about you?", options: ["bova", "Thighs", "personality", "Humor", "feet"], answer: "Thighs" },
             { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" },
             { question: "When did we first meet?", options: ["jan 18", "mar 5", "feb 23", "jan 27"], answer: "jan 18" },
-            { question: "What was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "GDFR", "you exist in this song", "I'm yours"], answer: "I'm yours" },
-            { question: "Who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big daddy justin *cs uncontrollably*💦"], answer: "OMG! it's the big daddy justin *cs uncontrollably*💦" },
+            { question: "What was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "you exist in this song", "I'm yours"], answer: "I'm yours" },
+            { question: "Who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big daddy justin *cums uncontrollably*💦"], answer: "OMG! it's the big daddy justin *cums uncontrollably*💦" },
             { question: "What are my dream goals?", options: ["VH-71 Kestrel", "Ferrari 812, V12 spider", "A winstreak in league", "jarvis system"], answer: "VH-71 Kestrel" },
             { question: "Do I get a bjob ring for my valentines?", options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!" },
             { question: "Will you 🥺 be my valentine? 👉👈", options: ["yes", "🔫"], answer: "yes" }
