@@ -81,8 +81,8 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             color: #4B0000;
-            width: 90%;
-            max-width: 800px;
+            width: 80%;
+            max-width: 700px;
             z-index: 10;
         }
 
