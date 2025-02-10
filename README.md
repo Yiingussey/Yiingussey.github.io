@@ -98,7 +98,7 @@
                 opacity: 0;
             }
         }
-</style>
+    </style>
 </head>
 <body>
     <audio id="background-music" loop>
@@ -111,102 +111,110 @@
             const audio = document.getElementById("background-music");
 
             // Attempt to autoplay the music
-            audio.play()
-                .then(() => console.log("Music is playing"))
-                .catch((err) => {
-                    console.error("Autoplay blocked:", err);
-                    alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
-                    
-                    // Allow playback on interaction if autoplay is blocked
-                    document.body.addEventListener("click", () => {
-                        audio.play();
-                    }, { once: true });
-                });
+            const playAudio = () => {
+                audio.play()
+                    .then(() => console.log("Music is playing"))
+                    .catch((err) => {
+                        console.error("Autoplay blocked:", err);
+                        alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
+                        
+                        // Allow playback on interaction if autoplay is blocked
+                        document.body.addEventListener("click", () => {
+                            audio.play();
+                        }, { once: true });
+                    });
+            };
+
+            // Try to play the audio immediately
+            playAudio();
+
+            // Fallback: Try to play the audio after a short delay
+            setTimeout(playAudio, 1000);
         });
+    </script>
 
-    
-   <script>
-    function showSurprise() {
-        document.getElementById("surprise").classList.remove("hidden");
-    }
+    <script>
+        function showSurprise() {
+            document.getElementById("surprise").classList.remove("hidden");
+        }
 
-    function showStoryPopup() {
-        document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
-        document.getElementById("story-popup").style.display = "block";
-    }
+        function showStoryPopup() {
+            document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
+            document.getElementById("story-popup").style.display = "block";
+        }
 
-    function showLetterPopup() {
-        document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
-        document.getElementById("letter-popup").style.display = "block";
-    }
+        function showLetterPopup() {
+            document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
+            document.getElementById("letter-popup").style.display = "block";
+        }
 
-    function closePopup(id) {
-        document.getElementById(id).style.display = "none";
-    }
+        function closePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
 
-    let quizIndex = 0;
-    let score = 0;
-    const quizData = [
-        { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
-    ];
-</script>
+        let quizIndex = 0;
+        let score = 0;
+        const quizData = [
+            { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
+        ];
+    </script>
 
-<h1 class="title">For the love of my life who I adore so much</h1>
+    <h1 class="title">For the love of my life who I adore so much</h1>
 
-<div class="container">
-    <button onclick="showSurprise()">Click Here for a Surprise!</button>
-    <div id="surprise" class="hidden">
-        <button onclick="showQuiz()">Take a Fun Love Quiz 💘</button>
-        <button onclick="showStoryPopup()">Read Our Love Story 📖</button>
-        <button onclick="showLetterPopup()">A Special Letter for You 💌</button>
+    <div class="container">
+        <button onclick="showSurprise()">Click Here for a Surprise!</button>
+        <div id="surprise" class="hidden">
+            <button onclick="showQuiz()">Take a Fun Love Quiz 💘</button>
+            <button onclick="showStoryPopup()">Read Our Love Story 📖</button>
+            <button onclick="showLetterPopup()">A Special Letter for You 💌</button>
+        </div>
     </div>
-</div>
 
-<div id="quiz-popup" class="popup">
-    <p id="quiz-question"></p>
-    <div id="quiz-options"></div>
-    <p id="quiz-feedback"></p>
-    <button onclick="closePopup('quiz-popup')">Close</button>
-</div>
+    <div id="quiz-popup" class="popup">
+        <p id="quiz-question"></p>
+        <div id="quiz-options"></div>
+        <p id="quiz-feedback"></p>
+        <button onclick="closePopup('quiz-popup')">Close</button>
+    </div>
 
-<!-- Love Story Popup with Embedded PDF -->
-<div id="story-popup" class="popup">
-    <h2>Our Love Story</h2>
-    <iframe id="story-frame" src="" width="100%" height="400px"></iframe>
-    <button onclick="closePopup('story-popup')">Close</button>
-</div>
+    <!-- Love Story Popup with Embedded PDF -->
+    <div id="story-popup" class="popup">
+        <h2>Our Love Story</h2>
+        <iframe id="story-frame" src="" width="100%" height="400px"></iframe>
+        <button onclick="closePopup('story-popup')">Close</button>
+    </div>
 
-<!-- Special Letter Popup -->
-<div id="letter-popup" class="popup">
-    <h2>A Special Letter for You 💌</h2>
-    <iframe id="letter-frame" src="" width="100%" height="400px"></iframe>
-    <button onclick="closePopup('letter-popup')">Close</button>
-</div>
+    <!-- Special Letter Popup -->
+    <div id="letter-popup" class="popup">
+        <h2>A Special Letter for You 💌</h2>
+        <iframe id="letter-frame" src="" width="100%" height="400px"></iframe>
+        <button onclick="closePopup('letter-popup')">Close</button>
+    </div>
 
-<script>
-    function showStoryPopup() {
-        document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
-        document.getElementById("story-popup").style.display = "block";
-    }
+    <script>
+        function showStoryPopup() {
+            document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
+            document.getElementById("story-popup").style.display = "block";
+        }
 
-    function showLetterPopup() {
-        document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
-        document.getElementById("letter-popup").style.display = "block";
-    }
+        function showLetterPopup() {
+            document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
+            document.getElementById("letter-popup").style.display = "block";
+        }
 
-    function closePopup(id) {
-        document.getElementById(id).style.display = "none";
-    }
+        function closePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
 
-    let quizIndex = 0;
-    let score = 0;
-    const quizData = [
-        { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
-        { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "dectective shyue yiing" },
-        { question: "who has better music taste", options: ["jjt", "bubu", "we both p good"], answer: "we both p good" },
-        { question: "do you cheat when you play scribble.io", options: ["No?", "even if you press know you sus", "very sus"], answer: "No?" },
-        { question: "who is better at air hockey?", options: ["hazel cuz justin let her win", "justin when locked in", "oreo"], answer: "justin when locked in" },
-        { question: "who sends cursed reels", options: ["hazel", "hazel at work", "hazel in bed"], answer: "hazel" },
+        let quizIndex = 0;
+        let score = 0;
+        const quizData = [
+            { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
+            { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "dectective shyue yiing" },
+            { question: "who has better music taste", options: ["jjt", "bubu", "we both p good"], answer: "we both p good" },
+            { question: "do you cheat when you play scribble.io", options: ["No?", "even if you press know you sus", "very sus"], answer: "No?" },
+            { question: "who is better at air hockey?", options: ["hazel cuz justin let her win", "justin when locked in", "oreo"], answer: "justin when locked in" },
+            { question: "who sends cursed reels", options: ["hazel", "hazel at work", "hazel in bed"], answer: "hazel" },
             { question: "What is our anniversary date?", options: ["Jan 14", "Feb 13", "March 14"], answer: "Feb 13" },
             { question: "What is my favorite thing about you?", options: ["bova", "Thighs", "personality", "Humor", "feet"], answer: "Thighs" },
             { question: "What was our bonding song?", options: ["Wap", "Fever", "Baby", "Comfortably Numb"], answer: "Comfortably Numb" },
@@ -286,4 +294,3 @@
     </script>
 </body>
 </html>
-
