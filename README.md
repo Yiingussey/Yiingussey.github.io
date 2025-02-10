@@ -143,22 +143,30 @@
         <button onclick="closePopup('quiz-popup')">Close</button>
     </div>
 
-    <div id="story-popup" class="popup">
-        <h2>Our Love Story</h2>
-        <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
-        <button onclick="closePopup('story-popup')">Close</button>
-    </div>
+   <div id="letter-popup" class="popup">
+    <h2>A Special Letter for You 💌</h2>
+    <iframe id="letter-frame" src="" width="100%" height="400px"></iframe>
+    <button onclick="closePopup('letter-popup')">Close</button>
+</div>
 
-    <div id="letter-popup" class="popup">
-        <h2>A Special Letter for You 💌</h2>
-        <p>My love, every moment with you is magical. You are my world, my everything... 💖</p>
-        <button onclick="closePopup('letter-popup')">Close</button>
-    </div>
+<script>
+    function showStoryPopup() {
+        document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
+        document.getElementById("story-popup").style.display = "block";
+    }
 
-    <script>
-        let quizIndex = 0;
-        let score = 0;
-        const quizData = [
+    function showLetterPopup() {
+        document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
+        document.getElementById("letter-popup").style.display = "block";
+    }
+
+    function closePopup(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    let quizIndex = 0;
+    let score = 0;
+    const quizData = [
         { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
         { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "dectective shyue yiing" },
         { question: "who has better music taste", options: ["jjt", "bubu", "we both p good"], answer: "we both p good" },
@@ -172,7 +180,7 @@
             { question: "What was the song we rekindled to when you were drunk?", options: ["115", "hotel room", "you exist in this song", "I'm yours"], answer: "I'm yours" },
             { question: "Who loves you more?", options: ["justin", "big J", "JJT", "OMG! it's the big daddy justin *cums uncontrollably*💦"], answer: "OMG! it's the big daddy justin *cums uncontrollably*💦" },
             { question: "What are my dream goals?", options: ["VH-71 Kestrel", "Ferrari 812, V12 spider", "A winstreak in league", "jarvis system"], answer: "VH-71 Kestrel" },
-            { question: "Do I get a bjob ring for my valentines?", options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!" },
+            { question: "Do I get a blowjob ring for my valentines?", options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!" },
             { question: "Will you 🥺 be my valentine? 👉👈", options: ["yes", "🔫"], answer: "yes" }
         ];
 
