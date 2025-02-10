@@ -123,32 +123,59 @@
                     }, { once: true });
                 });
         });
-    </script>
+   <script>
+    function showSurprise() {
+        document.getElementById("surprise").classList.remove("hidden");
+    }
 
-    <h1 class="title">For the love of my life who I adore so much</h1>
+    function showStoryPopup() {
+        document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
+        document.getElementById("story-popup").style.display = "block";
+    }
 
-    <div class="container">
-        <button onclick="showSurprise()">Click Here for a Surprise!</button>
-        <div id="surprise" class="hidden">
-            <button onclick="showQuiz()">Take a Fun Love Quiz 💘</button>
-            <button onclick="showStoryPopup()">Read Our Love Story 📖</button>
-            <button onclick="showLetterPopup()">A Special Letter for You 💌</button>
-        </div>
+    function showLetterPopup() {
+        document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
+        document.getElementById("letter-popup").style.display = "block";
+    }
+
+    function closePopup(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    let quizIndex = 0;
+    let score = 0;
+    const quizData = [
+        { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
+    ];
+</script>
+
+<h1 class="title">For the love of my life who I adore so much</h1>
+
+<div class="container">
+    <button onclick="showSurprise()">Click Here for a Surprise!</button>
+    <div id="surprise" class="hidden">
+        <button onclick="showQuiz()">Take a Fun Love Quiz 💘</button>
+        <button onclick="showStoryPopup()">Read Our Love Story 📖</button>
+        <button onclick="showLetterPopup()">A Special Letter for You 💌</button>
     </div>
+</div>
 
-    <div id="quiz-popup" class="popup">
-        <p id="quiz-question"></p>
-        <div id="quiz-options"></div>
-        <p id="quiz-feedback"></p>
-        <button onclick="closePopup('quiz-popup')">Close</button>
-    </div>
-    <div id="story-popup" class="popup">
-        <h2>Our Love Story</h2>
-        <p><a href="Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf" target="_blank">Click here to read our love story ❤️</a></p>
-        <button onclick="closePopup('story-popup')">Close</button>
-    </div>
+<div id="quiz-popup" class="popup">
+    <p id="quiz-question"></p>
+    <div id="quiz-options"></div>
+    <p id="quiz-feedback"></p>
+    <button onclick="closePopup('quiz-popup')">Close</button>
+</div>
 
-   <div id="letter-popup" class="popup">
+<!-- Love Story Popup with Embedded PDF -->
+<div id="story-popup" class="popup">
+    <h2>Our Love Story</h2>
+    <iframe id="story-frame" src="" width="100%" height="400px"></iframe>
+    <button onclick="closePopup('story-popup')">Close</button>
+</div>
+
+<!-- Special Letter Popup -->
+<div id="letter-popup" class="popup">
     <h2>A Special Letter for You 💌</h2>
     <iframe id="letter-frame" src="" width="100%" height="400px"></iframe>
     <button onclick="closePopup('letter-popup')">Close</button>
