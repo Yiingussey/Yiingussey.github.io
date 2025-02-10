@@ -278,10 +278,6 @@
             document.getElementById(id).style.display = "none";
         }
 
-        function showStoryPopup() {
-            document.getElementById("story-popup").style.display = "block";
-        }
-
         function showLetterPopup() {
             document.getElementById("letter-popup").style.display = "block";
         }
