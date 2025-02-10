@@ -110,25 +110,19 @@
         document.addEventListener("DOMContentLoaded", function () {
             const audio = document.getElementById("background-music");
 
-            function playMusic() {
-                audio.muted = false; // Ensure it's unmuted before playing
-                audio.play().then(() => {
-                    console.log("Music is playing");
-                }).catch(err => {
+            // Attempt to autoplay the music
+            audio.play()
+                .then(() => console.log("Music is playing"))
+                .catch((err) => {
                     console.error("Autoplay blocked:", err);
-                    alert("Autoplay was blocked. Click anywhere to play the music.");
-
-                    // Allow playback on first user interaction
+                    alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
+                    
+                    // Allow playback on interaction if autoplay is blocked
                     document.body.addEventListener("click", () => {
                         audio.play();
                     }, { once: true });
                 });
-            }
-
-            // Attempt autoplay
-            playMusic();
         });
-    </script>
 
     
    <script>
