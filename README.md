@@ -133,32 +133,6 @@
         });
     </script>
 
-    <script>
-        function showSurprise() {
-            document.getElementById("surprise").classList.remove("hidden");
-        }
-
-        function showStoryPopup() {
-            document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
-            document.getElementById("story-popup").style.display = "block";
-        }
-
-        function showLetterPopup() {
-            document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
-            document.getElementById("letter-popup").style.display = "block";
-        }
-
-        function closePopup(id) {
-            document.getElementById(id).style.display = "none";
-        }
-
-        let quizIndex = 0;
-        let score = 0;
-        const quizData = [
-            { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
-        ];
-    </script>
-
     <h1 class="title">For the love of my life who I adore so much</h1>
 
     <div class="container">
@@ -192,25 +166,12 @@
     </div>
 
     <script>
-        function showStoryPopup() {
-            document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
-            document.getElementById("story-popup").style.display = "block";
-        }
-
-        function showLetterPopup() {
-            document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
-            document.getElementById("letter-popup").style.display = "block";
-        }
-
-        function closePopup(id) {
-            document.getElementById(id).style.display = "none";
-        }
-
+        // Quiz functionality
         let quizIndex = 0;
         let score = 0;
         const quizData = [
             { question: "who is the funny one", options: ["Justin", "hazel", "idk but not hazel"], answer: "Justin" },
-            { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "dectective shyue yiing" },
+            { question: "who is politically correct", options: ["hazel", "detective shyue yiing", "justin"], answer: "detective shyue yiing" },
             { question: "who has better music taste", options: ["jjt", "bubu", "we both p good"], answer: "we both p good" },
             { question: "do you cheat when you play scribble.io", options: ["No?", "even if you press know you sus", "very sus"], answer: "No?" },
             { question: "who is better at air hockey?", options: ["hazel cuz justin let her win", "justin when locked in", "oreo"], answer: "justin when locked in" },
@@ -225,10 +186,6 @@
             { question: "Do I get a blowjob ring for my valentines?", options: ["I PROMISE TO USE IT WELL OKAY JUST LET ME HAVE IT", "YES", "YESS!"], answer: "YESS!" },
             { question: "Will you 🥺 be my valentine? 👉👈", options: ["yes", "🔫"], answer: "yes" }
         ];
-
-        function showSurprise() {
-            document.getElementById("surprise").style.display = "block";
-        }
 
         function showQuiz() {
             quizIndex = 0;
@@ -260,6 +217,24 @@
             setTimeout(updateQuiz, 1500);
         }
 
+        function showSurprise() {
+            document.getElementById("surprise").classList.remove("hidden");
+        }
+
+        function showStoryPopup() {
+            document.getElementById("story-frame").src = "Thank You Letter Doc in Green Gold White Watercolor Elegant Style.pdf"; 
+            document.getElementById("story-popup").style.display = "block";
+        }
+
+        function showLetterPopup() {
+            document.getElementById("letter-frame").src = "YOUR_PDF_LINK_HERE.pdf"; // Replace with your actual letter PDF link
+            document.getElementById("letter-popup").style.display = "block";
+        }
+
+        function closePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
         const imagePaths = [
             "14-20250209T064610Z-001/14/-rp8jrl.jpg", 
             "14-20250209T064610Z-001/14/6364d646a85bd0bb5298a3aa170d4169.jpg", 
@@ -283,14 +258,6 @@
                 document.body.appendChild(img);
             });
         };
-
-        function closePopup(id) {
-            document.getElementById(id).style.display = "none";
-        }
-
-        function showLetterPopup() {
-            document.getElementById("letter-popup").style.display = "block";
-        }
     </script>
 </body>
 </html>
