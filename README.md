@@ -98,7 +98,7 @@
                 opacity: 0;
             }
         }
-    </style>
+</style>
 </head>
 <body>
     <audio id="background-music" loop>
@@ -110,19 +110,27 @@
         document.addEventListener("DOMContentLoaded", function () {
             const audio = document.getElementById("background-music");
 
-            // Attempt to autoplay the music
-            audio.play()
-                .then(() => console.log("Music is playing"))
-                .catch((err) => {
+            function playMusic() {
+                audio.muted = false; // Ensure it's unmuted before playing
+                audio.play().then(() => {
+                    console.log("Music is playing");
+                }).catch(err => {
                     console.error("Autoplay blocked:", err);
-                    alert("Autoplay was blocked by the browser. Please click anywhere on the page to start the music.");
-                    
-                    // Allow playback on interaction if autoplay is blocked
+                    alert("Autoplay was blocked. Click anywhere to play the music.");
+
+                    // Allow playback on first user interaction
                     document.body.addEventListener("click", () => {
                         audio.play();
                     }, { once: true });
                 });
+            }
+
+            // Attempt autoplay
+            playMusic();
         });
+    </script>
+
+    
    <script>
     function showSurprise() {
         document.getElementById("surprise").classList.remove("hidden");
