@@ -162,7 +162,7 @@
     <!-- Special Letter Popup -->
     <div id="letter-popup" class="popup">
         <h2>A Special Letter for You 💌</h2>
-        <iframe id="letter-frame" src="" width="200%" height="800px"></iframe>
+        <iframe id="letter-frame" src="" width="100%" height="1600px"></iframe>
         <button onclick="closePopup('letter-popup')">Close</button>
     </div>
 
